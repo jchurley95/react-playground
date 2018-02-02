@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PanelContainer, Header, Content } from './Styled/Panel.styled';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 class Panel extends Component {
     constructor(props) {
@@ -9,6 +10,9 @@ class Panel extends Component {
             ...props
         }
     }
+    // Setting state with props like this is not recommended for final use
+    // I did this so that I could trigger a setState within this component and cause the component to re-render
+        // The function could be passed from a higher level of state as a prop to be used here, but in this manner the panel component be dropped into the code indendependently of the Accordion, which is just a group of panels
 
     changeContentShown = () => {
         let newData = {...this.state.data};

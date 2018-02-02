@@ -36,8 +36,6 @@ class AccordionPage extends Component {
 
         return (
             <AccordionPageContainer>
-                <h4>Designed to be manipulated as needed</h4>
-
                 <h3>Entire Accordion</h3>
                 <Accordion exampleData={exampleData}/>
 
