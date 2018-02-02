@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Accordion from './Accordion/Accordion';
+import Panel from './Accordion/Panel';
 import styled from 'styled-components';
 
 const AccordionPageContainer = styled.div`
@@ -35,9 +36,13 @@ class AccordionPage extends Component {
 
         return (
             <AccordionPageContainer>
-                <h3>Designed to be manipulated as needed</h3>
-            
+                <h4>Designed to be manipulated as needed</h4>
+
+                <h3>Entire Accordion</h3>
                 <Accordion exampleData={exampleData}/>
+
+                <h3>Individual Panel</h3>
+                <Panel data={exampleData[0]} />
             </AccordionPageContainer>
         );
     }
