@@ -9,16 +9,8 @@ class Accordion extends Component {
             ...props
         }
     }
-    
-    // componentWillMount() {
-    //     let exampleData = {...this.props.exampleData};
-    //     this.setState({exampleData});
-    // }
 
-    changeContentShown = (id) => {
-        let newExampleData = {...this.state.exampleData};
-        console.log(newExampleData[id].contentShown);
-    }
+    
 
     render() {
         const exampleData = this.state.exampleData;
