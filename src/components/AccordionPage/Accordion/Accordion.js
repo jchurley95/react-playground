@@ -5,26 +5,28 @@ import Panel from './Panel';
 class Accordion extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            ...props
+        }
     }
     
-    componentWillMount() {
-        let exampleData = {...this.props.exampleData};
-        this.setState({exampleData});
-    }
+    // componentWillMount() {
+    //     let exampleData = {...this.props.exampleData};
+    //     this.setState({exampleData});
+    // }
 
-    changeContentShown = () => {
-        let contentShown = this.props.contentShown
-        // this.props.contentShown = !this.props.contentShown;
+    changeContentShown = (id) => {
+        let newExampleData = {...this.state.exampleData};
+        console.log(newExampleData[id].contentShown);
     }
 
     render() {
-        const exampleData = this.props.exampleData;
+        const exampleData = this.state.exampleData;
         return (
             <AccordionContainer>
                 {   
                     exampleData.map((data, key) => {
-                        return <Panel data={data} key={key} />
+                        return <Panel data={data} id={key} key={key} changeContentShown={this.changeContentShown}/>
                     })
                 }
             </AccordionContainer>

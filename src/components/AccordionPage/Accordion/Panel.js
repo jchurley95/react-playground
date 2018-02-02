@@ -4,14 +4,11 @@ import { PanelContainer, Header, Content } from './Styled/Panel.styled';
 const Panel = (props) => {
     const data = props.data;
     var contentShown = data.contentShown;
-
-    const changeContentShown = () => {
-        contentShown = !contentShown;
-    }
+    console.log(props.id);
 
     return (
         <PanelContainer>
-            <Header onClick={changeContentShown}>{data.header}</Header>
+            <Header onClick={props.changeContentShown(props.id)}>{data.header}</Header>
             {
                 contentShown 
                 ?
