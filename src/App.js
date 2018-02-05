@@ -3,7 +3,7 @@ import AppWrapper from './App.styled';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
 import AccordionPage from './components/AccordionPage/AccordionPage';
-import DatePicker from './components/DatePicker/DatePicker';
+import DatePickerPage from './components/DatePickerPage/DatePickerPage';
 import ModalPage from './components/ModalPage/ModalPage';
 import Header from './components/PlayGroundSpecific/ReactComponents/Header/Header';
 import Body from './components/PlayGroundSpecific/StyledComponents/Body.styled';
@@ -45,7 +45,7 @@ class App extends Component {
                   <Switch>
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/accordion" component={AccordionPage} />
-                    <Route exact path="/date-picker" component={DatePicker} />
+                    <Route exact path="/date-picker" component={DatePickerPage} />
                     <Route exact path="/modal" component={ModalPage} />
                   </Switch>
 
