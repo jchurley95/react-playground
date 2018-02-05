@@ -1,10 +1,11 @@
 import React from 'react';
 import { DayContainer } from './Styled/Day.styled';
 
-const Day = () => {
+
+const Day = (props) => {
     return (
-        <DayContainer>
-            
+        <DayContainer onClick={props.handleDateSelection}>
+            day
         </DayContainer>
     );
 };

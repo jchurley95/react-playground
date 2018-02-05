@@ -1,9 +1,16 @@
 import React from 'react';
 import { AllWeeksContainer } from './Styled/AllWeeks.styled';
+import Week from './Week';
 
-const AllWeeks = () => {
+const AllWeeks = (props) => {
+
     return (
         <AllWeeksContainer>
+            
+            <Week handleDateSelection={props.handleDateSelection}/>
+            <Week handleDateSelection={props.handleDateSelection}/>
+            <Week handleDateSelection={props.handleDateSelection}/>
+            <Week handleDateSelection={props.handleDateSelection}/>
             
         </AllWeeksContainer>
     );

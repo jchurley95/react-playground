@@ -1,10 +1,12 @@
 import React from 'react';
-import { MonthBannerContainer } from './Styled/MonthBanner.styled';
+import { MonthBannerContainer, MonthName, NextMonth, PreviousMonth } from './Styled/MonthBanner.styled';
 
-const MonthBanner = () => {
+const MonthBanner = (props) => {
     return (
         <MonthBannerContainer>
-            Month
+            <PreviousMonth onClick={props.decrementMonth}>Prev</PreviousMonth>
+            <MonthName>Month</MonthName>
+            <NextMonth onClick={props.incrementMonth}>Next</NextMonth>
         </MonthBannerContainer>
     );
 };
