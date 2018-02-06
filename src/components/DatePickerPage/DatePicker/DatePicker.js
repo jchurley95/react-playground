@@ -10,18 +10,18 @@ class DatePicker extends Component {
         super(props);
 
         this.state = {
-            viewingMonth: "",
-            selectedDate: null
+            selectedDate: null,
+            viewingMonth: null
         }
     }
 
     componentWillMount() {
         const defaultDate = this.setDefaultDate();
-        const months = moment.months();
-        console.log(months);
-
+        const viewingMonth = parseInt(moment(defaultDate).format('dddd, M').toString().split(" ").slice(1).toString());
+        console.log(viewingMonth);
         this.setState({
-            selectedDate: defaultDate
+            selectedDate: defaultDate,
+            viewingMonth: viewingMonth
         });
     }
 
@@ -55,30 +55,61 @@ class DatePicker extends Component {
         // props.maxDate
 
     incrementMonth = () => {
-        console.log("Incremented")
+        var currentMonth = this.state.viewingMonth;
+        var nextMonth = currentMonth + 1; 
+        console.log('nextMonth is: ', nextMonth);
+        this.setState({
+            viewingMonth: nextMonth
+        })
     }
     decrementMonth = () => {
-        console.log("Decremented")
+        var currentMonth = this.state.viewingMonth;
+        var previousMonth = currentMonth - 1; 
+        console.log('previousMonth is: ', previousMonth);
+        this.setState({
+            viewingMonth: previousMonth
+        })
     }
 
     // Increment Year
     // Decrement Year
 
+    createMonth = (month, year) => {
+        var startDate = moment(year + '-' + month + '-' + "01");
+        var endDate = startDate.clone().endOf('month')
+
+        return {
+            monthStartDate: startDate.toDate(),
+            monthEndDate: endDate.toDate()
+        }
+    }
+
     // CreateYear ? only be able to select a date from yesterday to one year from today or tomorrow.....
-    
+    createYear = () => {
+        var weekdays = moment()._locale._weekdays;
+        var currentDay = moment().day();
+        var currentDate = moment().date();
+        var currentYear = moment().year();
+        var currentMonth = moment().month();
+    }
 
     render() {
         const weekdays = moment()._locale._weekdays;
-        const weeksInMonth = moment(moment().endOf('month') - moment().startOf('month')).weeks()
-
-        const test = moment()._locale;
-        console.log(test);
+        const weeksInMonth = moment(moment().endOf('month') - moment().startOf('month')).weeks();
+        var startOfCurrentMonth = moment().startOf('month')._d.toString().split(" ").slice(0, 4).reverse();
+        var endOfCurrentMonth = moment().endOf('month')._d.toString().split(" ").slice(0, 4).reverse();
+        const viewingMonth = this.state.viewingMonth;
+        const selectedDate = this.state.selectedDate;
+        // .month(9).date(42).format('YYYY-MM-DD');
+        const lastOfMonth = moment().month(viewingMonth).endOf('month');
+        console.log(lastOfMonth);
+        console.log(viewingMonth)
 
         return (
             <DatePickerContainer>
-                <MonthBanner incrementMonth={this.incrementMonth} decrementMonth={this.decrementMonth} />
+                <MonthBanner viewingMonth={viewingMonth} incrementMonth={this.incrementMonth} decrementMonth={this.decrementMonth} />
                 <DaysOfTheWeekBanner />
-                <AllWeeks handleDateSelection={this.props.handleDateSelection}/>
+                <AllWeeks viewingMonth={viewingMonth} selectedDate={selectedDate} handleDateSelection={this.props.handleDateSelection}/>
             </DatePickerContainer>
         );
     }

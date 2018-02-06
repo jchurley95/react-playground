@@ -12,8 +12,8 @@ class DatePickerPage extends Component {
         super();
         
         this.state = {
-            selectedDate: "",
-            defaultDate: null
+            selectedDate: moment().toDate().toString(),
+            defaultDate: moment().toDate().toString()
         }
     }
 
@@ -22,11 +22,11 @@ class DatePickerPage extends Component {
         console.log("hit")
         var year = "YYYY";
         var month = "-MM-";
-        var day = event.target.innerHTML;
+        var day = event.target.date;
         var date = day + month + year;
         console.log(date)
         // var date = new Date(year, month, day);
-        this.setState({selectedDate: date});
+        this.setState({selectedDate: moment().toDate().toString()});
     }
 
     render() {
