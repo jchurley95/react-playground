@@ -1,21 +1,57 @@
 import React from 'react';
-import moment from 'moment';
+import Moment from 'moment';
+import { extendMoment } from 'moment-range';
 import { AllWeeksContainer } from './Styled/AllWeeks.styled';
 import Week from './Week';
 
+
 const AllWeeks = (props) => {
-    const firstDayOfMonthName = moment().month(props.viewingMonth).format('ddd');
-    const firstDayOfMonthNumber = moment().month(props.viewingMonth).format('D');
-    console.log("first day name: ", firstDayOfMonthName);
-    console.log("first day number: ", firstDayOfMonthNumber);
+    const moment = extendMoment(Moment);
+
+    const calendarIndex = 0;
+    const firstDayOfMonth = moment().month(props.viewingMonth).startOf('month');
+    const firstDayOfMonthName = moment(firstDayOfMonth).format('ddd');
+    const firstDayOfMonthNumber = moment(firstDayOfMonth).format('D');
+
+    const lastDayOfMonth = moment().month(props.viewingMonth).endOf('month');
+    const lastDayOfMonthName = moment().month(props.viewingMonth).endOf('month').format('ddd');
+    const lastDayOfMonthNumber = moment().month(props.viewingMonth).endOf('month').format('D');
+
+    const numberOfDaysInMonth = lastDayOfMonthNumber;
+    const monthRange = moment.range(firstDayOfMonth, lastDayOfMonth);
+    console.log(monthRange);
+    // for (let day of monthRange.by('day')) {
+        
+    // }
+    const daysInMonth = Array.from(monthRange.by('day'));
+    console.log(daysInMonth);
+    const weeksInMonth = Array.from(monthRange.by('weeks'));
+    console.log(weeksInMonth);
+    
+
 // Need to start on the {firstDayOfMonthNumber} value in the weeks, on a {firstDayOfMonthName}, and within that day container display {firstDayOfMonthNumber}
+// Need to know # of weeks to return ???
+    // If month starts on a Saturday (example)
+    // Number should probably bump up for # of weeks automatically
+    // Return <Week /> 's until {numberOfDaysInMonth} is empty
+
+    // Then, within first <Week /> of month,
+        // If {lastDayOfMonthNumber} is not equal to the {calendarIndex} of the final <Day /> in the last <Week />
+            // return end of previous month in empty spaces leading up to {firstDayOfMonthNumber}
+    // Then, within last <Week /> of month, 
+        // If {lastDayOfMonthNumber} is not equal to the {calendarIndex} of the first <Day /> in the first <Week />
+            // return beginning of next month in empty spaces starting after {lastDayOfTheMonthNumber}
+
     return (
         <AllWeeksContainer>
-            
-            <Week handleDateSelection={props.handleDateSelection}/>
-            <Week handleDateSelection={props.handleDateSelection}/>
-            <Week handleDateSelection={props.handleDateSelection}/>
-            <Week handleDateSelection={props.handleDateSelection}/>
+
+            {
+                weeksInMonth.map(week => {
+                    return (
+                        <Week key={week} handleDateSelection={props.handleDateSelection}/>
+                    )
+                })
+            }
             
         </AllWeeksContainer>
     );
