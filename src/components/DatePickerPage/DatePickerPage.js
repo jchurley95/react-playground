@@ -10,27 +10,41 @@ const DatePickerPageContainer = styled.div`
 class DatePickerPage extends Component {
     constructor() {
         super();
-        
+
         this.state = {
-            selectedDate: moment().toDate().toString(),
-            defaultDate: moment().toDate().toString()
+            selectedDateOne: moment().toDate().toString(),
+            defaultDateOne: moment().toDate().toString(),
+            selectedDateTwo: moment().toDate().toString(),
+            defaultDateTwo: moment().toDate().toString()
         }
     }
 
-    handleDateSelection = (date) => {
-        //moment([year, month, day])
-        console.log("date is: ", date)
-        // var date = new Date(year, month, day);
-        this.setState({selectedDate: date});
+    handleFirstDateSelection = (date) => {
+        this.setState({
+            selectedDateOne: date
+        });
     }
 
+    handleSecondDateSelection = (date) => {
+        this.setState({
+            selectedDateTwo: date
+        });
+    }
+
+
     render() {
-        var selectedDate = this.state.selectedDate;
         return (
             <DatePickerPageContainer>
-                <div>Selected Date is: {selectedDate}</div>
+                <div>Selected Date is: {this.state.selectedDateOne}</div>
                 <br />
-                <DatePicker handleDateSelection={this.handleDateSelection} defaultDate={this.state.defaultDate}/>
+
+                <DatePicker handleDateSelection={this.handleFirstDateSelection} defaultDate={this.state.defaultDateOne} />
+                <br />
+
+                <div>Selected Date is: {this.state.selectedDateTwo}</div>
+                <br />
+                <DatePicker handleDateSelection={this.handleSecondDateSelection} defaultDate={this.state.defaultDateTwo} />
+
             </DatePickerPageContainer>
         );
     }

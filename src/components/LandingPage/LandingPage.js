@@ -1,12 +1,13 @@
 import React from 'react';
-import { LandingPageContainer, ComponentLink } from './Styled/LandingPage.styled';
+import { LandingPageContainer } from './Styled/LandingPage.styled';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
     return (
         <LandingPageContainer>
-            <ComponentLink to="/accordion">Accordion</ComponentLink>
-            <ComponentLink to="/date-picker">DatePicker</ComponentLink>
-            <ComponentLink to="/modal">Modal</ComponentLink>
+            <Link to="/accordion">Accordion</Link>
+            <Link to="/date-picker">DatePicker</Link>
+            <Link to="/modal">Modal</Link>
         </LandingPageContainer>
     );
 };

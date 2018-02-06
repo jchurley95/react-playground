@@ -11,8 +11,9 @@ const DayContainer = DayAndName.extend`
     box-shadow: 1px 1px black;
 
     &:hover {
-        background-color: rgba(225, 225, 225, 0.7);
+        background-color: ${props => props.disabled ? null : 'rgba(225, 225, 225, 0.7)'};
     }
+    background-color: ${props => props.disabled ? 'LightSteelBlue' : 'LightSeaGreen'}
 `
 
 export {

@@ -4,7 +4,6 @@ import { WeekContainer } from './Styled/Week.styled';
 import Day from './Day';
 
 const Week = (props) => {
-    let weekdays = moment()._locale._weekdays;
     var daysInWeek = props.daysInWeek;
 
     return (
@@ -12,7 +11,12 @@ const Week = (props) => {
             {
                 daysInWeek.map((day) => {
                     return (
-                        <Day key={day} day={day} handleDateSelection={props.handleDateSelection} />
+                        <Day 
+                            key={day} 
+                            day={day} 
+                            viewingMonth={props.viewingMonth}
+                            handleDateSelection={props.handleDateSelection} 
+                        />
                     )
                 })
             }
