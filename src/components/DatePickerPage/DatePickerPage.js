@@ -17,16 +17,11 @@ class DatePickerPage extends Component {
         }
     }
 
-    handleDateSelection = (event) => {
+    handleDateSelection = (date) => {
         //moment([year, month, day])
-        console.log("hit")
-        var year = "YYYY";
-        var month = "-MM-";
-        var day = event.target.date;
-        var date = day + month + year;
-        console.log(date)
+        console.log("date is: ", date)
         // var date = new Date(year, month, day);
-        this.setState({selectedDate: moment().toDate().toString()});
+        this.setState({selectedDate: date});
     }
 
     render() {

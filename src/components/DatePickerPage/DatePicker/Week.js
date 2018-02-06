@@ -5,13 +5,14 @@ import Day from './Day';
 
 const Week = (props) => {
     let weekdays = moment()._locale._weekdays;
+    var daysInWeek = props.daysInWeek;
 
     return (
         <WeekContainer>
             {
-                weekdays.map((weekday) => {
+                daysInWeek.map((day) => {
                     return (
-                        <Day key={weekday} handleDateSelection={props.handleDateSelection} />
+                        <Day key={day} day={day} handleDateSelection={props.handleDateSelection} />
                     )
                 })
             }

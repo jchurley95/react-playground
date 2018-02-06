@@ -4,7 +4,6 @@ import { MonthBannerContainer, MonthName, NextMonth, PreviousMonth } from './Sty
 
 const MonthBanner = (props) => {
     const nameOfMonth = moment().month(props.viewingMonth).format('MMMM').toString();
-    console.log(nameOfMonth);
     return (
         <MonthBannerContainer>
             <PreviousMonth onClick={props.decrementMonth}>Prev</PreviousMonth>

@@ -8,7 +8,7 @@ import Week from './Week';
 const AllWeeks = (props) => {
     const moment = extendMoment(Moment);
 
-    const calendarIndex = 0;
+    var calendarIndex = -1;
     const firstDayOfMonth = moment().month(props.viewingMonth).startOf('month');
     const firstDayOfMonthName = moment(firstDayOfMonth).format('ddd');
     const firstDayOfMonthNumber = moment(firstDayOfMonth).format('D');
@@ -19,14 +19,11 @@ const AllWeeks = (props) => {
 
     const numberOfDaysInMonth = lastDayOfMonthNumber;
     const monthRange = moment.range(firstDayOfMonth, lastDayOfMonth);
-    console.log(monthRange);
     // for (let day of monthRange.by('day')) {
         
     // }
     const daysInMonth = Array.from(monthRange.by('day'));
-    console.log(daysInMonth);
     const weeksInMonth = Array.from(monthRange.by('weeks'));
-    console.log(weeksInMonth);
     
 
 // Need to start on the {firstDayOfMonthNumber} value in the weeks, on a {firstDayOfMonthName}, and within that day container display {firstDayOfMonthNumber}
@@ -47,8 +44,21 @@ const AllWeeks = (props) => {
 
             {
                 weeksInMonth.map(week => {
+                    calendarIndex++;
+                    var endOfWeek = moment(week).endOf('week');
+                    var startOfWeek = moment(week).startOf('week');
+                    var weekRange = moment.range(startOfWeek, endOfWeek);
+                    var daysInWeek = Array.from(weekRange.by('days'));
                     return (
-                        <Week key={week} handleDateSelection={props.handleDateSelection}/>
+                        <Week 
+                            key={week} 
+                            week={week}
+                            calendaryIndex={calendarIndex}
+                            startOfWeek={startOfWeek}
+                            endOfWeek={endOfWeek}
+                            daysInWeek={daysInWeek}
+                            handleDateSelection={props.handleDateSelection}
+                        />
                     )
                 })
             }
