@@ -48,6 +48,7 @@ const AllWeeks = (props) => {
                         <Week 
                             key={week} 
                             week={week}
+                            selectedDate={props.selectedDate}
                             startOfWeek={startOfWeek}
                             endOfWeek={endOfWeek}
                             daysInWeek={daysInWeek}

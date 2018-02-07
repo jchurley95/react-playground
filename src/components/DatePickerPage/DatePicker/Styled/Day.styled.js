@@ -16,6 +16,11 @@ const DayContainer = DayAndName.extend`
     background-color: ${props => props.disabled ? 'LightSteelBlue' : 'LightSeaGreen'}
 `
 
+const SelectedDayContainer = DayContainer.extend`
+    background-color: white;
+`
+
 export {
-    DayContainer
+    DayContainer,
+    SelectedDayContainer
 }

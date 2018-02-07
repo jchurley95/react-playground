@@ -60,7 +60,7 @@ class DatePicker extends Component {
 
     render() {
         const viewingMonth = this.state.viewingMonth;
-        const selectedDate = this.state.selectedDate;
+        const selectedDate = this.props.selectedDate;
         
         return (
             <DatePickerContainer>

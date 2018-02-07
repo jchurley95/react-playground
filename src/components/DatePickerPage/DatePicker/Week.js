@@ -12,6 +12,7 @@ const Week = (props) => {
                 daysInWeek.map((day) => {
                     return (
                         <Day 
+                            selectedDate={props.selectedDate}
                             key={day} 
                             day={day} 
                             viewingMonth={props.viewingMonth}
