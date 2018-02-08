@@ -14,7 +14,6 @@ const Day = (props) => {
     var monthThisDayBelongsTo = moment(props.day).month();
     var belongsToViewingMonth = monthThisDayBelongsTo === viewingMonth;
     var isSelectedDate = formattedDay === formattedSelectedDate;
-    console.log(isSelectedDate);
 
     if (belongsToViewingMonth && !isSelectedDate) {
         return (

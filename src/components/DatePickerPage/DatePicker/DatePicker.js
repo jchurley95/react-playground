@@ -27,7 +27,6 @@ class DatePicker extends Component {
 
     setDefaultDate = () => {
         if(this.props.defaultDate){
-            console.log(this.props.defaultDate)
             return this.props.defaultDate;
         }
         else {
