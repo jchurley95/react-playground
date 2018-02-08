@@ -27,7 +27,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-test-renderer": "^16.2.0",
-    "should-enzyme": "^2.0.0"
+    "should-enzyme": "^2.0.0",
+    "sinon": "^4.2.2"
   },
   "author": "",
   "license": "ISC"
