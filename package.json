@@ -22,10 +22,12 @@
     "chai-enzyme": "^0.8.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "jasmine-enzyme": "^4.2.0",
     "jest-enzyme": "^4.2.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-test-renderer": "^16.2.0"
+    "react-test-renderer": "^16.2.0",
+    "should-enzyme": "^2.0.0"
   },
   "author": "",
   "license": "ISC"
