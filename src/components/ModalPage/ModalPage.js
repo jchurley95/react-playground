@@ -28,7 +28,9 @@ class ModalPage extends Component {
             <ModalPageContainer>
                 <h3>Modal</h3>
                 <button onClick={this.changeShowModal}>Show Modal</button>
+
                 <Modal modalShown={modalShown} changeShowModal={this.changeShowModal}/>
+                
             </ModalPageContainer>
         );
     }

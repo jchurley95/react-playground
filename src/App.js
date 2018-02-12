@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
 import AccordionPage from './components/AccordionPage/AccordionPage';
 import BarcodePage from './components/BarcodePage/BarcodePage';
+import CheckBoxPage from './components/CheckBoxPage/CheckBoxPage';
 import DatePickerPage from './components/DatePickerPage/DatePickerPage';
 import ModalPage from './components/ModalPage/ModalPage';
 import Header from './components/PlayGroundSpecific/ReactComponents/Header/Header';
@@ -24,6 +25,10 @@ class App extends Component {
         {
           name: "Barcode Generator",
           path: "/barcode-generator"
+        },
+        {
+          name: "CheckBoxes",
+          path: "/checkbox"
         },
         {
           name: "Date Picker",
@@ -50,6 +55,7 @@ class App extends Component {
                   <Switch>
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/accordion" component={AccordionPage} />
+                    <Route exact path="/checkbox" component={CheckBoxPage} />
                     <Route exact path="/barcode-generator" component={BarcodePage} />
                     <Route exact path="/date-picker" component={DatePickerPage} />
                     <Route exact path="/modal" component={ModalPage} />
