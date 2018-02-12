@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Barcode from './Barcode/Barcode';
 
 const BarcodePageContainer = styled.div`
-  margin: 20px;
+  padding: 20px;
 `;
 
 class BarcodePage extends Component {
@@ -17,6 +17,7 @@ class BarcodePage extends Component {
   render() {
     return (
       <BarcodePageContainer>
+        <h3>Barcode Generator</h3>
         <div>Number being converted: {this.state.numberToConvert}</div>
         <Barcode numberToConvert={this.state.numberToConvert} />
       </BarcodePageContainer>

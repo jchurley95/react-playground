@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 const FullBarcodeContainer = styled.div`
-    margin: 0 auto;
-    margin-top: 100px;
+    margin: 20px;
     width: 500px;
     height: 190px;
     border: 1px solid black;

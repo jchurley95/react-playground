@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 
 const DatePickerPageContainer = styled.div`
-    margin: 20px;
+    padding: 20px;
 `
 
 class DatePickerPage extends Component {
@@ -35,6 +35,7 @@ class DatePickerPage extends Component {
     render() {
         return (
             <DatePickerPageContainer>
+                <h3>Moment.js Date Picker</h3>
                 <div>Selected Date is: {this.state.selectedDateOne}</div>
                 <br />
 
