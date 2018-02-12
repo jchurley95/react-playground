@@ -3,9 +3,7 @@ import { SingleBarContainer } from './Styled/Barcode.styled';
 
 const SingleBar = (props) => {
     return (
-        <SingleBarContainer>
-            
-        </SingleBarContainer>
+        <SingleBarContainer style={props.currentStyle}></SingleBarContainer>
     );
 };
 

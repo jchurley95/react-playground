@@ -59,7 +59,7 @@ const CloseModal = styled.span`
     }
 `
 const ModalBody = styled.div`
-
+    margin: 20px;
 `
 
 export {

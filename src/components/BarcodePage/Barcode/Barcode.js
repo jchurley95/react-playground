@@ -5,8 +5,8 @@ import {
 } from './Styled/Barcode.styled';
 
 class Barcode extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         
         this.state = {
             barcodeDigitColorCombinations: {
@@ -26,24 +26,12 @@ class Barcode extends Component {
 
     render() {
         var colorCombinations = this.state.barcodeDigitColorCombinations
-        var numberAsArray = this.state.numberToConvert.split("");
+        var numberAsArray = this.props.numberToConvert.split("");
         
         return (
-            <FullBarcodeContainer className="Full-barcode">
+            <FullBarcodeContainer>
                 {numberAsArray.map((digit) => {
-                    return <BarcodeDigit digit={digit}/>
-                    
-                    <BarcodeDigitContainer className="Barcode-digit">
-                        {colorCombinations[digit].map((color, index) => {
-                        let currentColor = colorCombinations[digit][index];
-                        let currentStyle = {backgroundColor: currentColor};
-                        return (
-                            <IndividualColorStyled style={currentStyle}>
-                            
-                            </IndividualColorStyled>
-                        )
-                        })}
-                    </BarcodeDigitContainer>
+                    return <BarcodeDigit colorCombinations={colorCombinations} digit={digit}/>
                 })}
             </FullBarcodeContainer>
         );

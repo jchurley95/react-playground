@@ -24,7 +24,7 @@ const Modal = (props) => {
                             </BannerContent>
                         </ModalBanner>
                         <ModalBody>
-                            
+                            You can also click the 'X' to close me.
                         </ModalBody>
                     </ModalContent>
                 </ModalContainer>
