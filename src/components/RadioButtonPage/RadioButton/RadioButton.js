@@ -12,10 +12,10 @@ const RadioButton = (props) => {
                     value={props.value}
                     defaultChecked
                 />
+                <label>{props.value}</label>
             </RadioButtonContainer>
         );
     }
-
     else {
         return (
             <RadioButtonContainer>
@@ -25,6 +25,7 @@ const RadioButton = (props) => {
                     name={props.name}
                     value={props.value}
                 />
+                <label>{props.value}</label>
             </RadioButtonContainer>
         );
     }
