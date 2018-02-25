@@ -4,7 +4,12 @@ import { CheckBoxInput } from './Styled/CheckBox.styled';
 const CheckBox = (props) => {
     var checked = props.checked;
         return (
-            <CheckBoxInput type="checkbox" />
+            <CheckBoxInput 
+                name={props.name}
+                type="checkbox"
+                checked={props.checked}
+                onChange={props.onChange} 
+            />
         );
         
 };

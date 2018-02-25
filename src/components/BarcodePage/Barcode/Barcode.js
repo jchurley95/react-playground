@@ -30,8 +30,12 @@ class Barcode extends Component {
         
         return (
             <FullBarcodeContainer>
-                {numberAsArray.map((digit) => {
-                    return <BarcodeDigit colorCombinations={colorCombinations} digit={digit}/>
+                {numberAsArray.map((digit, index) => {
+                    return <BarcodeDigit 
+                                colorCombinations={colorCombinations} 
+                                digit={digit}
+                                key={index}
+                            />
                 })}
             </FullBarcodeContainer>
         );
