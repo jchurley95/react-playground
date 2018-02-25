@@ -39,6 +39,8 @@ const ModalBanner = styled.div`
     height: 50px;
     max-height: 20%;
     box-shadow: 2px 2px gray;
+    background-color: rgba(100,200,220,1);
+    color: white;
 
     display: flex;
     flex-direction: column;

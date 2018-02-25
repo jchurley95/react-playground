@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Modal from './Modal/Modal';
 import styled from 'styled-components';
+import ExampleModalContent from './ExampleModalContent';
 
 const ModalPageContainer = styled.div`
     padding: 20px;
@@ -29,7 +30,12 @@ class ModalPage extends Component {
                 <h3>Modal</h3>
                 <button onClick={this.changeShowModal}>Show Modal</button>
 
-                <Modal modalShown={modalShown} changeShowModal={this.changeShowModal}/>
+                <Modal 
+                    modalShown={modalShown} 
+                    changeShowModal={this.changeShowModal}
+                    modalBannerMessage = "This is a modal"
+                    modalContent = {<ExampleModalContent/>}
+                />
                 
             </ModalPageContainer>
         );

@@ -44,7 +44,7 @@ class CheckBoxPage extends Component {
 
 
                 <form>
-                    <h4>Individual</h4>
+                    <h4>Individual CheckBox</h4>
                     <div><strong>individualData:</strong> {this.state.individualData.toString()}</div>
                     
                     <CheckBox 
