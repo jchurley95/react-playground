@@ -15,10 +15,12 @@ class BarcodePage extends Component {
   }
 
   handleInputChange = (event) => {
-    var target = event.target;
-    var name = target.name;
-
-    console.log(event, target, name)
+    var name = event.target.name;
+    var value = event.target.value;
+    var newState = {...this.state}
+    newState[name] = value;
+    this.setState(newState)
+    console.log(this.state)
   }
 
   render() {
@@ -26,7 +28,12 @@ class BarcodePage extends Component {
       <BarcodePageContainer>
         <h3>Barcode Generator</h3>
         <div>Number being converted: {this.state.numberToConvert}</div>
-        <input type="text" onChange={this.handleInputChange}/>
+          <input 
+            type="text" 
+            onChange={this.handleInputChange}
+            name="numberToConvert"
+            placeholder={this.state.numberToConvert}
+          />
 
         <Barcode numberToConvert={this.state.numberToConvert} />
       </BarcodePageContainer>
