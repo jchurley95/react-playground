@@ -7,6 +7,7 @@ const CheckBox = (props) => {
             <CheckBoxInput 
                 name={props.name}
                 type="checkbox"
+                checked={props.checked}
                 onChange={props.onChange} 
             />
         );

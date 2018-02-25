@@ -14,7 +14,7 @@ class CheckBoxPage extends Component {
         this.state = {
             individualData: true,
             formData: {
-                exampleOne: false,
+                exampleOne: true,
                 exampleTwo: false,
             }
         }
@@ -42,10 +42,11 @@ class CheckBoxPage extends Component {
             <CheckBoxPageContainer>
                 <h3>CheckBox</h3>
 
-                <div>{this.state.individualData.toString()}</div>
 
                 <form>
                     <h4>Individual</h4>
+                    <div>individualData: {this.state.individualData.toString()}</div>
+                    
                     <CheckBox 
                         name="individualData"
                         checked={this.state.individualData}
@@ -53,6 +54,8 @@ class CheckBoxPage extends Component {
                     />
 
                     <h4>CheckBox Group</h4>
+                    <div>exampleOne: {this.state.formData.exampleOne.toString()}</div>
+                    <div>exampleTwo: {this.state.formData.exampleTwo.toString()}</div>
                     <CheckBoxGroup
                         checkBoxValues={this.state.formData}
                         onChange={this.handleSpecificGroupInputChange}

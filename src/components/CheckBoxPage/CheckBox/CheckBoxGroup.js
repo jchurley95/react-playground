@@ -13,6 +13,7 @@ const CheckBoxGroup = (props) => {
                             key={index}
                             name={currentValue} 
                             type="checkbox"
+                            checked={checkBoxValues[currentValue]}
                             onChange={props.onChange}
                         />
                     )
