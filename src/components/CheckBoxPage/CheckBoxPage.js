@@ -16,6 +16,8 @@ class CheckBoxPage extends Component {
             formData: {
                 exampleOne: true,
                 exampleTwo: false,
+                exampleThree: false,
+                exampleFour: false
             }
         }
     }
@@ -56,6 +58,8 @@ class CheckBoxPage extends Component {
                     <h4>CheckBox Group</h4>
                     <div><strong>exampleOne:</strong> {this.state.formData.exampleOne.toString()}</div>
                     <div><strong>exampleTwo:</strong> {this.state.formData.exampleTwo.toString()}</div>
+                    <div><strong>exampleThree:</strong> {this.state.formData.exampleThree.toString()}</div>
+                    <div><strong>exampleFour:</strong> {this.state.formData.exampleFour.toString()}</div>
                     <CheckBoxGroup
                         checkBoxValues={this.state.formData}
                         onChange={this.handleSpecificGroupInputChange}

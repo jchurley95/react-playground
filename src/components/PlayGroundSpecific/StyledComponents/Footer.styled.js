@@ -6,7 +6,7 @@ const FooterContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     text-align: center;
-
+    background-color: DarkGray;
 `
 
 export default FooterContainer;
