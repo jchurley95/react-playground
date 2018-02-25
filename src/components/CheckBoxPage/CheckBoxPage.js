@@ -16,50 +16,46 @@ class CheckBoxPage extends Component {
             formData: {
                 exampleOne: false,
                 exampleTwo: false,
-                exampleThree: "not CheckBox data",
-                exampleFour: "meaningless value on this page"
             }
         }
     }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-        console.log(target)
-        console.log(value)
-        console.log(name)
-        // console.log(this.state.individualData)
-        // const newState = {...this.state}
-        // newState[name] = value;
-        // this.setState({newState});
+    handleSingleInputChange = (event) => {
+        const name = event.target.name;
+        const checked = event.target.checked;
+        const newState = {...this.state}
+        newState[name] = checked;
+        this.setState(newState);
+    }
+
+    handleSpecificGroupInputChange = (event) => {
+        const name = event.target.name;
+        const checked = event.target.checked;
+        const newState = {...this.state}
+        newState.formData[name] = checked;
+        this.setState(newState);
     }
       
     render() {
-        console.log(this.state)
-        const checkBoxValues = [
-            this.state.formData.exampleOne, 
-            this.state.formData.exampleTwo
-        ]
-
+        
         return (
             <CheckBoxPageContainer>
                 <h3>CheckBox</h3>
 
-                <div>{this.state.formData.exampleOne.toString()}</div>
+                <div>{this.state.individualData.toString()}</div>
 
                 <form>
                     <h4>Individual</h4>
                     <CheckBox 
                         name="individualData"
                         checked={this.state.individualData}
-                        onChange={this.handleInputChange}
+                        onChange={this.handleSingleInputChange}
                     />
 
                     <h4>CheckBox Group</h4>
                     <CheckBoxGroup
-                        checked={checkBoxValues}
-                        onChange={this.handleInputChange}
+                        checkBoxValues={this.state.formData}
+                        onChange={this.handleSpecificGroupInputChange}
                     />
                 </form>
             </CheckBoxPageContainer>

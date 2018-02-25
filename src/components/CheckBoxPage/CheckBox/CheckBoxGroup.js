@@ -3,17 +3,16 @@ import { CheckBoxGroupContainer } from './Styled/CheckBoxGroup.styled';
 import CheckBox from './CheckBox';
 
 const CheckBoxGroup = (props) => {
-    const checkBoxData = props.checked;
+    const checkBoxValues = props.checkBoxValues;
     return (
         <CheckBoxGroupContainer>
             {
-                checkBoxData.map((currentValue, index) => {
+                Object.keys(checkBoxValues).map((currentValue, index) => {
                     return (
                         <CheckBox 
                             key={index}
-                            name="individualData" 
+                            name={currentValue} 
                             type="checkbox"
-                            checked={currentValue}
                             onChange={props.onChange}
                         />
                     )
