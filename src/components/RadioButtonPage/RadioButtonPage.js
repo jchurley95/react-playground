@@ -13,25 +13,22 @@ class RadioButtonPage extends Component {
         super();
 
         this.state = {
-            optionSelected: "option one"
+            optionSelected: "option one",
+            groupOptionSelected: "option one"
         }
     }
 
-    handleSingleRadioButtonChange = (event) => {
+    handleRadioButtonChange = (event) => {
         var name = event.target.name;
         var value = event.target.value;
         var newState = {...this.state}
         newState[name] = value;
-        console.log(newState)
         this.setState(newState)
     }
 
-    handleGroupRadioButtonChange = (event) => {
-        
-    }
-
-
     render() {
+        var groupValues = ["option one", "option two", "option three"];
+
         return (
             <RadioButtonPageContainer>
                 <h3>Radio Button</h3>
@@ -41,22 +38,27 @@ class RadioButtonPage extends Component {
                 <RadioButton
                     name="optionSelected"
                     value="option one"
-                    clickFunction={this.handleSingleRadioButtonChange}
+                    clickFunction={this.handleRadioButtonChange}
                     isChecked={true}
                 />
                 <RadioButton
                     name="optionSelected"
                     value="option two"
-                    clickFunction={this.handleSingleRadioButtonChange}
+                    clickFunction={this.handleRadioButtonChange}
                 />
                 <RadioButton
                     name="optionSelected"
                     value="option three"
-                    clickFunction={this.handleSingleRadioButtonChange}
+                    clickFunction={this.handleRadioButtonChange}
                 />
 
+                <h4> Radio Button Group </h4>
+                <div><strong>Selected:</strong> {this.state.groupOptionSelected}</div>
                 <RadioButtonGroup 
-
+                    name="groupOptionSelected"
+                    clickFunction={this.handleRadioButtonChange}
+                    values={groupValues}
+                    checkedValue={groupValues[0]}
                 />
 
             </RadioButtonPageContainer>

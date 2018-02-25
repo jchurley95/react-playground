@@ -2,7 +2,6 @@ import React from 'react';
 import { RadioButtonContainer } from './Styled/RadioButton.styled'
 
 const RadioButton = (props) => {
-
     if(props.isChecked) {
         return (
             <RadioButtonContainer>
@@ -16,7 +15,7 @@ const RadioButton = (props) => {
             </RadioButtonContainer>
         );
     }
-    
+
     else {
         return (
             <RadioButtonContainer>
@@ -29,7 +28,6 @@ const RadioButton = (props) => {
             </RadioButtonContainer>
         );
     }
-    
 };
 
 export default RadioButton;
