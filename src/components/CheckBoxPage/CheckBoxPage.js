@@ -44,7 +44,6 @@ class CheckBoxPage extends Component {
             <CheckBoxPageContainer>
                 <h3>CheckBox</h3>
 
-
                 <form>
                     <h4>Individual CheckBox</h4>
                     <div><strong>individualData:</strong> {this.state.individualData.toString()}</div>
@@ -65,6 +64,7 @@ class CheckBoxPage extends Component {
                         onChange={this.handleSpecificGroupInputChange}
                     />
                 </form>
+                
             </CheckBoxPageContainer>
         );
     }

@@ -9,6 +9,7 @@ import CheckBoxPage from './components/CheckBoxPage/CheckBoxPage';
 import DatePickerPage from './components/DatePickerPage/DatePickerPage';
 import ModalPage from './components/ModalPage/ModalPage';
 import RadioButtonPage from './components/RadioButtonPage/RadioButtonPage';
+import PanelSpinnerPage from './components/PanelSpinner/PanelSpinnerPage';
 
 import Header from './components/PlayGroundSpecific/ReactComponents/Header/Header';
 import Body from './components/PlayGroundSpecific/StyledComponents/Body.styled';
@@ -42,6 +43,10 @@ class App extends Component {
           path: "/modal"
         },
         {
+          name: "Panel Spinner",
+          path: "/panel-spinner"
+        },
+        {
           name: "Radio Button",
           path: "/radio-button"
         }
@@ -66,6 +71,7 @@ class App extends Component {
                     <Route exact path="/barcode-generator" component={BarcodePage} />
                     <Route exact path="/date-picker" component={DatePickerPage} />
                     <Route exact path="/modal" component={ModalPage} />
+                    <Route exact path="/panel-spinner" component={PanelSpinnerPage} />
                     <Route exact path="/radio-button" component={RadioButtonPage} />
                   </Switch>
 
