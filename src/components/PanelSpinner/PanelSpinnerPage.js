@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PanelSpinner from './PanelSpinner/PanelSpinner';
 
 const PanelSpinnerPageContainer = styled.div`
-
+    padding: 20px;
 `
 
 class PanelSpinnerPage extends Component {
@@ -48,6 +48,7 @@ class PanelSpinnerPage extends Component {
             ]
         }
     }
+    
     render() {
         return (
             <PanelSpinnerPageContainer>
