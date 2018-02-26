@@ -12,13 +12,13 @@
   position: absolute;
   transform-style: preserve-3d;
   transition: transform 2s;
-  margin-top: 100px;
+  margin-top: 200px;
   margin-bottom: 20px;
 }
 .item {
   display: block;
   position: absolute;
-  background-color: rgba(100,200,220,0.7);
+  background-color: rgba(100,200,220,0.8);
   background-position: center;
   width: 170px;
   height: 170px;
@@ -27,13 +27,13 @@
   margin: 10px;
   text-align: center;
   box-shadow: 2px 5px 10px 1px black;
-  text-shadow: 2px 2px black;
 }
 .next, .prev {
   color: white;
   background: rgba(100,200,220,1);;
   top: 100px;
   padding: 1em 2em;
+  margin: 20px;
   cursor: pointer;
   border-radius: 5px;
   border-top: 1px solid #FFF;

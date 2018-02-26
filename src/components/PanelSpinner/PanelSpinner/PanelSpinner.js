@@ -48,8 +48,9 @@ class PanelSpinner extends Component {
                         })}
                     </Carousel>
                 </PanelSpinnerContainer>
-                <button className="next" onClick={this.rotateLeft}>Next</button>
                 <button className="prev" onClick={this.rotateRight}>Prev</button>
+                <button className="next" onClick={this.rotateLeft}>Next</button>
+                
             </div>
         );
     }
