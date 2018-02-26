@@ -2,12 +2,15 @@ import React from 'react';
 import { LandingPageContainer } from './Styled/LandingPage.styled';
 import { Link } from 'react-router-dom';
 
-const LandingPage = () => {
+const LandingPage = (props) => {
+    console.log(props)
     return (
         <LandingPageContainer>
-            <Link to="/accordion">Accordion</Link>
-            <Link to="/date-picker">DatePicker</Link>
-            <Link to="/modal">Modal</Link>
+            {
+                props.pages.map((page, index) => {
+                    return (<Link to={page.path}>{page.name}</Link>)
+                })
+            }
         </LandingPageContainer>
     );
 };

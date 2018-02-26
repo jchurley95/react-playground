@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AppWrapper from './App.styled';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import './App.css'
 import LandingPage from './components/LandingPage/LandingPage';
 import AccordionPage from './components/AccordionPage/AccordionPage';
 import BarcodePage from './components/BarcodePage/BarcodePage';
@@ -54,6 +54,9 @@ class App extends Component {
     }
   }
   render() {
+    const landingPageComponent = () => {
+      return <LandingPage pages={this.state.components} />
+    }
     return (
           <Router>
             <AppWrapper>
@@ -65,7 +68,7 @@ class App extends Component {
                 <Content>
 
                   <Switch>
-                    <Route exact path="/" component={LandingPage} />
+                    <Route exact path="/" component={landingPageComponent}/>
                     <Route exact path="/accordion" component={AccordionPage} />
                     <Route exact path="/checkbox" component={CheckBoxPage} />
                     <Route exact path="/barcode-generator" component={BarcodePage} />
