@@ -10,7 +10,18 @@ import {
         } from './Styled/Modal.styled';
 
 const Modal = (props) => {
-    const modalShown = props.modalShown;
+    var modalShown = props.modalShown;
+
+    var modalBannerMessage = "";
+    if(props.modalBannerMessage) {
+        modalBannerMessage = props.modalBannerMessage
+    }
+
+    var modalContent = "";
+    if(props.modalContent) {
+        modalContent = props.modalContent;
+    }
+
 
     if (modalShown) {
         return (
@@ -19,13 +30,12 @@ const Modal = (props) => {
                     <ModalContent>
                         <ModalBanner>
                             <BannerContent>
-                                <BannerMessage>Hey I'm a modal. Click outside of me to close me.</BannerMessage>
+                                <i/>
+                                <BannerMessage>{modalBannerMessage}</BannerMessage>
                                 <CloseModal onClick={props.changeShowModal}>X</CloseModal>
                             </BannerContent>
                         </ModalBanner>
-                        <ModalBody>
-                            You can also click the 'X' to close me.
-                        </ModalBody>
+                        <ModalBody>{modalContent}</ModalBody>
                     </ModalContent>
                 </ModalContainer>
                 <ModalBackground onClick={props.changeShowModal} ></ModalBackground>

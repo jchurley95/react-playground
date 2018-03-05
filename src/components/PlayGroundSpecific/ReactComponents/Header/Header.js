@@ -4,7 +4,7 @@ import HeaderContainer from '../../StyledComponents/Header.styled';
 const Header = (props) => {
     return (
         <HeaderContainer>
-            <h1>Designed to be manipulated as needed</h1>
+            <h1>React Playground</h1>
         </HeaderContainer>
     );
 };
