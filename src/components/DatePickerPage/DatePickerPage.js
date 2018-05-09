@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import DatePicker from './DatePicker/DatePicker';
+import DatePicker from './Old/DatePicker/DatePicker';
+import StyledDatePicker from './New/StyledDatePicker';
 import styled from 'styled-components';
 import moment from 'moment';
 
@@ -15,7 +16,9 @@ class DatePickerPage extends Component {
             selectedDateOne: moment().toDate().toString(),
             defaultDateOne: moment().toDate().toString(),
             selectedDateTwo: moment().toDate().toString(),
-            defaultDateTwo: moment().toDate().toString()
+            defaultDateTwo: moment().toDate().toString(),
+            selectedDateThree: moment().toDate().toString(),
+            defaultDateThree: moment().toDate().toString()
         }
     }
 
@@ -31,11 +34,24 @@ class DatePickerPage extends Component {
         });
     }
 
+    handleThirdDateSelection = (date) => {
+        this.setState({
+            selectedDateThree: date
+        });
+    }
+
 
     render() {
         return (
             <DatePickerPageContainer>
                 <h3>Moment.js Date Picker</h3>
+
+                <div>Selected Date is: {this.state.selectedDateThree}</div>
+                <StyledDatePicker
+                    handleDateSelection={this.handleThirdDateSelection}
+                    defaultDate={this.state.defaultDateThree}
+                />
+                
                 <div>Selected Date is: {this.state.selectedDateOne}</div>
                 <br />
 
