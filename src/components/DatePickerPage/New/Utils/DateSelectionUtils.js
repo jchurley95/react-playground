@@ -164,9 +164,34 @@ var getWeekObjectsFromOnlyActualMonth = (daysInActualMonth) => {
     return weeksToShowFromActualMonthOnly;
 }
 
-var getWeekObjectsFromDaysInEntireViewingMonth = (weeksToShowFromActualMonthOnly) => {
+var getWeekObjectsFromDaysInEntireViewingMonth = (viewingMonth, weeksToShowFromActualMonthOnly) => {
     var weeksToShowFromEntireViewingMonth = [];
-    
+
+    var daysToShowFromBeforeActualMonth = getDaysInViewingMonthBeforeFirstWeekOfActualMonth(viewingMonth);
+    daysToShowFromBeforeActualMonth.map((day, index) => {
+        var currentDay = {
+            momentObjectOfDay: day,
+            inActualMonth: false,
+            indexInPreviousMonth: index
+        }
+        weeksToShowFromActualMonthOnly[0].splice(index, 1, currentDay)
+    })
+
+    // var daysToShowFromAfterActualMonth = getDaysInViewingMonthAfterLastWeekOfActualMonth(viewingMonth);
+    // daysToShowFromAfterActualMonth.map((day, index) => {
+    //     var currentDay = {
+    //         momentObjectOfDay: day,
+    //         inActualMonth: false,
+    //         indexInNextMonth: index
+    //     }
+    //     var week = weeksToShowFromActualMonthOnly[weeksToShowFromActualMonthOnly.length - 1];
+    //     var weekReversed = week.reverse();
+    //     weekReversed = weekReversed.splice(index, 1, currentDay);
+    //     week = weekReversed.reverse();
+    //     weeksToShowFromActualMonthOnly[weeksToShowFromActualMonthOnly.length - 1] = week;
+    // })
+    weeksToShowFromEntireViewingMonth = weeksToShowFromActualMonthOnly;
+    console.log(weeksToShowFromEntireViewingMonth)
     return weeksToShowFromEntireViewingMonth;
 }
 

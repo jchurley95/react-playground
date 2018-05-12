@@ -29,7 +29,7 @@ const AllShownWeeks = (props) => {
     allDaysToShow = allDaysToShow.concat(daysToShowFromActualMonth);
     allDaysToShow = allDaysToShow.concat(daysToShowFromNextMonth);
     var weeksToShowFromActualMonthOnly = getWeekObjectsFromOnlyActualMonth(daysToShowFromActualMonth);
-    var weeksToShowFromEntireViewingMonth = getWeekObjectsFromDaysInEntireViewingMonth(weeksToShowFromActualMonthOnly);
+    var weeksToShowFromEntireViewingMonth = getWeekObjectsFromDaysInEntireViewingMonth(props.viewingMonth, weeksToShowFromActualMonthOnly);
     return (
         <AllShownWeeksContainer>
             
