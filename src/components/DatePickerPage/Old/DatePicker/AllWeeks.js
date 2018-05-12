@@ -9,7 +9,7 @@ const AllWeeks = (props) => {
     const moment = extendMoment(Moment);
     const firstDayOfMonth = moment().month(props.viewingMonth).startOf('month');
     const lastDayOfMonth = moment().month(props.viewingMonth).endOf('month');
-    console.log('lastDayOfMonth is: ', lastDayOfMonth)
+    // console.log('lastDayOfMonth is: ', lastDayOfMonth)
     const lastDayOfMonthNumber = moment().month(props.viewingMonth).endOf('month').format('D');
     // console.log('lastDayOfMonthNumber is: ', lastDayOfMonthNumber)
     const numberOfDaysInMonth = lastDayOfMonthNumber;
@@ -20,15 +20,15 @@ const AllWeeks = (props) => {
     // console.log('lastWeekOfMonthStartDate is: ', lastWeekOfMonthStartDate)
     let lastWeekOfMonthEndDate = moment(lastWeekOfMonthStartDate).add(1, 'week')
     // console.log('lastWeekOfMonthEndDate is: ', lastWeekOfMonthEndDate);
-    console.log('weeksInMonth is: ', weeksInMonth);
+    // console.log('weeksInMonth is: ', weeksInMonth);
     var monthOfLastWeekOfMonthEndDate = moment(lastWeekOfMonthEndDate).month();
-    console.log('monthOfLastWeekOfMonthEndDate: ', monthOfLastWeekOfMonthEndDate)
+    // console.log('monthOfLastWeekOfMonthEndDate: ', monthOfLastWeekOfMonthEndDate)
     var monthOfLastDayOfMonth = moment(lastDayOfMonth).month();
     var test = moment(lastWeekOfMonthEndDate).isBefore(lastDayOfMonth);
-    console.log("test is: ", test);
-    console.log('monthOfLastDayOfMonth: ', monthOfLastDayOfMonth)
+    // console.log("test is: ", test);
+    // console.log('monthOfLastDayOfMonth: ', monthOfLastDayOfMonth)
     if ((lastWeekOfMonthEndDate !== lastDayOfMonth) && (moment(monthOfLastWeekOfMonthEndDate).isBefore(monthOfLastDayOfMonth))) {
-        console.log("hit")
+        // console.log("hit")
         // weeksInMonth.push()
     }
     // console.log('add 1 week is: ', moment(firstDayOfMonth).add(1, 'week'))

@@ -12,6 +12,7 @@ const DayContainer = DayAndName.extend`
 
     &:hover {
         background-color: ${props => props.disabled ? null : 'rgba(225, 225, 225, 0.7)'};
+        cursor: pointer;
     }
     background-color: ${props => props.disabled ? 'LightSteelBlue' : 'LightSeaGreen'}
 `

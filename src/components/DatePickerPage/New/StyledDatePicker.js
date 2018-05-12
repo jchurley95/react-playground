@@ -59,8 +59,39 @@ class StyledDatePicker extends Component {
         var viewingMonth = moment(datePlusOneYear).month();
         this.setState({viewingMonth})
     }
+    determineIfDateIsDayNumberInWeek = (date, givenDayNumber) => {
+        var dateIsDayNumberInWeek = false;
+        // if date.dayNumberInWeek or something like that === givenDayNumber {
+            // dateIsDayNumberInWeek = true;    
+        // }
+        return dateIsDayNumberInWeek;
+    }
+    determineIfDateShouldBeDisabledByMinDateMaxDate = (date) => {
+        var dateShouldBeDisabled = false;
+
+        if (this.props.minDate) {
+            if (date < this.props.minDate) {
+                dateShouldBeDisabled = true;
+            }
+        }
+        if (this.props.maxDate) {
+            if (date > this.props.maxDate) {
+                dateShouldBeDisabled = true;
+            }
+        }
+
+        return dateShouldBeDisabled
+    }
 
     render() {
+        // This guy needs the following for the HD app:
+            // minDate
+            // maxDate
+            // defaultDate
+            // selectedDate
+            // disabled logic run against each date in viewing month
+            // showDatepicker true false
+            // 
         return (
             <StyledDatePickerContainer>
                 <Header 
