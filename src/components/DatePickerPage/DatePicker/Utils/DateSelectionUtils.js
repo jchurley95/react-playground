@@ -79,7 +79,6 @@ const getNumberOfDaysToShowFromBeforeActualMonth = (firstDayOfActualMonth) => {
     if (dayNumberInWeek !== 0) {
         numberOfDaysToShow = dayNumberInWeek - 1;
     }
-    console.log(numberOfDaysToShow);
     return numberOfDaysToShow;
 }
 
@@ -94,9 +93,8 @@ const getNumberOfDaysToShowFromAfterActualMonth = (lastDayOfActualMonth) => {
 
 const getEmptyDaySpacesForPreviousMonth = (firstDayOfActualMonth) => {
     let arrayOfEmptyDaySpaces = [];
-    console.log(arrayOfEmptyDaySpaces)
     let numberOfDaysFromPreviousMonth = getNumberOfDaysToShowFromBeforeActualMonth(firstDayOfActualMonth);
-    console.log(numberOfDaysFromPreviousMonth) // here
+    // console.log(numberOfDaysFromPreviousMonth) // here
     while (numberOfDaysFromPreviousMonth) {
         let emptyDay = {
             momentObjectOfDay: null,
@@ -106,7 +104,6 @@ const getEmptyDaySpacesForPreviousMonth = (firstDayOfActualMonth) => {
         arrayOfEmptyDaySpaces.push(emptyDay);
         numberOfDaysFromPreviousMonth--;
     }
-    console.log(arrayOfEmptyDaySpaces)
     return arrayOfEmptyDaySpaces;
 }
 const getEmptyDaySpacesForNextMonth = (lastDayOfActualMonth) => {
@@ -128,7 +125,6 @@ const getEmptyDaySpacesForNextMonth = (lastDayOfActualMonth) => {
 
 const getWeekObjectsFromOnlyActualMonth = (daysInActualMonth) => {
     let weeksToShowFromActualMonthOnly = [];
-    console.log(weeksToShowFromActualMonthOnly)
     let currentWeek = [];
     daysInActualMonth.map((day, index) => {
         if (index === 0) {

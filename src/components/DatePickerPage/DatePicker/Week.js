@@ -5,7 +5,6 @@ import {
 } from './Styled/StyledDatePicker.styled';
 
 const Week = (props) => {
-    console.log("WEEK::::: ", props.week)
     return (
         <WeekContainer>
             {

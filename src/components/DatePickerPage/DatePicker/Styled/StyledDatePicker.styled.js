@@ -4,17 +4,24 @@ const StyledDatePickerContainer = styled.div`
     width: 300px;
     padding: 10px;
     border: 1px solid gray;
-    border-radius: 20px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    // font-family: "Open Sans";
 `
 const HeaderContainer = styled.div`
     display: flex;
     justify-content: space-between;
 `
 const MonthName = styled.div`
+    color: #444;
+    font-weigth: 600px;
+    font-size: 18px;
 `
 const YearText = styled.div`
 `
 const NavigateButtons = styled.button`
+    background: #FFFFFF;
+    border-radius: 2px;
 `
 const PreviousMonthButton = NavigateButtons.extend`
 `
@@ -36,24 +43,40 @@ const WeekContainer = styled.div`
     display: flex;
     justify-content: space-between;
 `
-const DayContainer = styled.div`
+const DayBaseStyle = styled.div`
     width: 40px;
     height: 40px;
-    border: 1px solid black;
     border-radius: 360px;
     display: flex;
     justify-content: center;
+`
+const DayContainer = DayBaseStyle.extend`
 
     &:hover {
         cursor: pointer;
         background-color: rgba(225,225,225,0.9);
     }
 `
-const SelectedDayContainer = styled.div`
+const SelectedDayContainer = DayBaseStyle.extend`
+    background: #F96302;
+    color: #FFFFFF;
+
+    &:hover {
+        cursor: pointer;
+    }
 `
-const DisabledDayContainer = styled.div`
+const DisabledDayContainer = DayBaseStyle.extend`
+    color: gray;
+
 `
-const TodayContainer = styled.div`
+const TodayContainer = DayBaseStyle.extend`
+    border: 1px solid #F96302;
+    color: #F96302;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(225,225,225,0.9);
+    }
 `
 const DayNumber = styled.div`
     align-self: center;

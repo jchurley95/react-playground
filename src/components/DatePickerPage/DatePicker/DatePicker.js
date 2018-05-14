@@ -21,7 +21,8 @@ class StyledDatePicker extends Component {
         const viewingMonth = moment(defaultDate).month();
         
         this.setState({
-            viewingMonth: viewingMonth
+            viewingMonth: viewingMonth,
+            defaultDate: defaultDate
         });
     }
 
@@ -30,7 +31,7 @@ class StyledDatePicker extends Component {
             return this.props.defaultDate;
         }
         else {
-            return moment().toDate();
+            return moment();
         }
     }
     incrementViewingMonth = () => {
@@ -98,11 +99,16 @@ class StyledDatePicker extends Component {
                     incrementViewingMonth={this.incrementViewingMonth}
                     decrementViewingMonth={this.decrementViewingMonth}
                     viewingMonth={this.state.viewingMonth}
+                    minDate={this.props.minDate}
+                    maxDate={this.props.maxDate}
                 />
                 <DaysOfTheWeekBanner />
                 <AllShownWeeks
                     viewingMonth={this.state.viewingMonth}
                     handleDateSelection={this.props.handleDateSelection}
+                    selectedDate={this.props.selectedDate ? this.props.selectedDate : this.state.defaultDate}
+                    minDate={this.props.minDate}
+                    maxDate={this.props.maxDate}
                 />
             </StyledDatePickerContainer>
         );
