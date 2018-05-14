@@ -15,6 +15,7 @@ const Week = (props) => {
                             key={index}
                             day={day}
                             handleDateSelection={props.handleDateSelection}
+                            selectedDate={props.selectedDate}
                         />
                     )
                 })

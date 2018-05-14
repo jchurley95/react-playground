@@ -35,6 +35,11 @@ const AllShownWeeks = (props) => {
         days: []
     };
     allDaysToShow.map((day, index) => {
+        console.log(day)
+        var currentDay = {
+            dateAsMomentObject: day,
+            disabled: false
+        }
         currentWeek.days.push(day);
         if (currentWeek.days.length === 7) {
             weeksToShow.push(currentWeek);

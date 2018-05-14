@@ -30,7 +30,7 @@ const AllShownWeeksContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 175px;
+    height: 250px;
 `
 const WeekContainer = styled.div`
     display: flex;
@@ -49,6 +49,12 @@ const DayContainer = styled.div`
         background-color: rgba(225,225,225,0.9);
     }
 `
+const SelectedDayContainer = styled.div`
+`
+const DisabledDayContainer = styled.div`
+`
+const TodayContainer = styled.div`
+`
 const DayNumber = styled.div`
     align-self: center;
 `
@@ -66,5 +72,8 @@ export {
     AllShownWeeksContainer,
     WeekContainer,
     DayContainer,
+    SelectedDayContainer,
+    DisabledDayContainer,
+    TodayContainer,
     DayNumber
 }
