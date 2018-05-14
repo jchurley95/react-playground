@@ -94,7 +94,7 @@ var getNumberOfDaysToShowFromAfterActualMonth = (lastDayOfActualMonth) => {
 var getEmptyDaySpacesForPreviousMonth = (firstDayOfActualMonth) => {
     var emptyDaySpaces = [];
     var numberOfDaysFromPreviousMonth = getNumberOfDaysToShowFromBeforeActualMonth(firstDayOfActualMonth);
-    // console.log(numberOfDaysFromPreviousMonth)
+    console.log(numberOfDaysFromPreviousMonth) // here
     while (numberOfDaysFromPreviousMonth) {
         var emptyDay = {
             momentObjectOfDay: null,
@@ -103,8 +103,9 @@ var getEmptyDaySpacesForPreviousMonth = (firstDayOfActualMonth) => {
         }
         emptyDaySpaces.push(emptyDay);
         numberOfDaysFromPreviousMonth--;
+        console.log(emptyDay)
     }
-    // console.log(emptyDaySpaces)
+    console.log(emptyDaySpaces)
     return emptyDaySpaces;
 }
 var getEmptyDaySpacesForNextMonth = (lastDayOfActualMonth) => {
@@ -132,6 +133,8 @@ var getWeekObjectsFromOnlyActualMonth = (daysInActualMonth) => {
             var emptyDaySpacesForPreviousMonth = getEmptyDaySpacesForPreviousMonth(daysInActualMonth[0]);
             currentWeek = emptyDaySpacesForPreviousMonth;
             // console.log(currentWeek)
+        // console.log(emptyDaySpacesForPreviousMonth)
+            
         }
         else if (currentWeek.length !== 7) {
             var currentDay = {
@@ -159,7 +162,6 @@ var getWeekObjectsFromOnlyActualMonth = (daysInActualMonth) => {
         else if (index === daysInActualMonth.length - 1 && moment(daysInActualMonth[index]).isoWeekday() === 6) { // last day of month is a Saturday, no need for empty days
             weeksToShowFromActualMonthOnly.push(currentWeek);
         }
-        
     })
     return weeksToShowFromActualMonthOnly;
 }
@@ -191,7 +193,6 @@ var getWeekObjectsFromDaysInEntireViewingMonth = (viewingMonth, weeksToShowFromA
     //     weeksToShowFromActualMonthOnly[weeksToShowFromActualMonthOnly.length - 1] = week;
     // })
     weeksToShowFromEntireViewingMonth = weeksToShowFromActualMonthOnly;
-    console.log(weeksToShowFromEntireViewingMonth)
     return weeksToShowFromEntireViewingMonth;
 }
 
