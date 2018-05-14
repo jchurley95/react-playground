@@ -86,11 +86,11 @@ const AllShownWeeks = (props) => {
             }
         }
         // if day is less than minDate
-        if (moment.max(day, props.minDate) !== day && day !== props.minDate) {
+        if (props.minDate && moment.max(day, props.minDate) !== day && day !== props.minDate) {
             isDisabled = true;
         }
         // if day is greater than maxDate
-        if (moment.min(day, props.maxDate) !== day && day !== props.maxDate) {
+        if (props.maxDate && moment.min(day, props.maxDate) !== day && day !== props.maxDate) {
             isDisabled = true;
         }
         // if day meets disable crieria

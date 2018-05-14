@@ -7,7 +7,7 @@ import {
     StyledDatePickerContainer
 } from './Styled/StyledDatePicker.styled';
 
-class StyledDatePicker extends Component {
+class TheRealDatePicker extends Component {
     constructor() {
         super();
 
