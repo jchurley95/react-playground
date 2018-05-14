@@ -4,6 +4,7 @@ const StyledDatePickerContainer = styled.div`
     width: 300px;
     padding: 10px;
     border: 1px solid gray;
+    border-radius: 20px;
 `
 const HeaderContainer = styled.div`
     display: flex;
@@ -26,12 +27,30 @@ const DaysOfTheWeekBannerContainer = styled.div`
 const DayOfTheWeek = styled.div`
 `
 const AllShownWeeksContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 175px;
 `
 const WeekContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
 `
 const DayContainer = styled.div`
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 360px;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(225,225,225,0.9);
+    }
 `
 const DayNumber = styled.div`
+    align-self: center;
 `
 
 

@@ -3,21 +3,21 @@ import { extendMoment } from 'moment-range';
 
 const moment = extendMoment(Moment);
 
-var getAllStartingDaysOfWeeksInViewingMonth = (viewingMonth) => {
-    var firstDayOfMonth = moment().month(viewingMonth).startOf('month');
-    var lastDayOfMonth = moment().month(viewingMonth).endOf('month');
-    var monthRange = moment.range(firstDayOfMonth, lastDayOfMonth);
-    var startingDaysOfWeeksInMonth = Array.from(monthRange.by('weeks'));
+const getAllStartingDaysOfWeeksInViewingMonth = (viewingMonth) => {
+    let firstDayOfMonth = moment().month(viewingMonth).startOf('month');
+    let lastDayOfMonth = moment().month(viewingMonth).endOf('month');
+    let monthRange = moment.range(firstDayOfMonth, lastDayOfMonth);
+    let startingDaysOfWeeksInMonth = Array.from(monthRange.by('weeks'));
     return startingDaysOfWeeksInMonth;
 }
 
-var getDaysInActualMonth = (viewingMonth) => {
-    var actualMonth = moment().month(viewingMonth);
-    var numberOfDaysInMonth = moment(actualMonth).daysInMonth();
-    var daysInActualMonth = [];
+const getDaysInActualMonth = (viewingMonth) => {
+    let actualMonth = moment().month(viewingMonth);
+    let numberOfDaysInMonth = moment(actualMonth).daysInMonth();
+    let daysInActualMonth = [];
 
     while (numberOfDaysInMonth) {
-        var currentDay = moment(actualMonth).date(numberOfDaysInMonth);
+        let currentDay = moment(actualMonth).date(numberOfDaysInMonth);
         daysInActualMonth.push(currentDay);
         numberOfDaysInMonth--;
     }
@@ -26,12 +26,12 @@ var getDaysInActualMonth = (viewingMonth) => {
     return daysInActualMonth;
 }
 
-var getArrayOfDaysGivenFirstAndLastDayOnly = (firstDay, lastDay) => {
-    var arrayOfDays = [];
-    var rangeOfDays = moment.range(firstDay, lastDay);
-    var numberOfDaysBetweenThem = rangeOfDays.end.date() - rangeOfDays.start.date();
+const getArrayOfDaysGivenFirstAndLastDayOnly = (firstDay, lastDay) => {
+    let arrayOfDays = [];
+    let rangeOfDays = moment.range(firstDay, lastDay);
+    let numberOfDaysBetweenThem = rangeOfDays.end.date() - rangeOfDays.start.date();
     while (numberOfDaysBetweenThem) {
-        var currentDay = moment(rangeOfDays.end).subtract(numberOfDaysBetweenThem, 'days');
+        let currentDay = moment(rangeOfDays.end).subtract(numberOfDaysBetweenThem, 'days');
         arrayOfDays.push(currentDay);
         numberOfDaysBetweenThem--;
     }
@@ -39,14 +39,14 @@ var getArrayOfDaysGivenFirstAndLastDayOnly = (firstDay, lastDay) => {
     return arrayOfDays;
 }
 
-var getDaysInViewingMonthBeforeFirstWeekOfActualMonth = (viewingMonth) => {
-    var daysToShowFromBeforeActualMonth = [];   
+const getDaysInViewingMonthBeforeFirstWeekOfActualMonth = (viewingMonth) => {
+    let daysToShowFromBeforeActualMonth = [];   
 
-    var firstDayOfActualMonth = moment().month(viewingMonth).startOf('month');
+    let firstDayOfActualMonth = moment().month(viewingMonth).startOf('month');
     if (moment(firstDayOfActualMonth).isoWeekday() !== 0) { // if the first day of the month isn't a Sunday
-        var numberOfDaysToShowFromBeforeActualMonth = getNumberOfDaysToShowFromBeforeActualMonth(firstDayOfActualMonth);
-        var lastDayOfLastMonth = moment().month(viewingMonth - 1).endOf('month');
-        var firstDayOfDaysToShowFromBeforeActualMonth = moment(lastDayOfLastMonth).subtract(numberOfDaysToShowFromBeforeActualMonth, 'days');
+        let numberOfDaysToShowFromBeforeActualMonth = getNumberOfDaysToShowFromBeforeActualMonth(firstDayOfActualMonth);
+        let lastDayOfLastMonth = moment().month(viewingMonth - 1).endOf('month');
+        let firstDayOfDaysToShowFromBeforeActualMonth = moment(lastDayOfLastMonth).subtract(numberOfDaysToShowFromBeforeActualMonth, 'days');
         firstDayOfDaysToShowFromBeforeActualMonth = moment(firstDayOfDaysToShowFromBeforeActualMonth);
         daysToShowFromBeforeActualMonth = getArrayOfDaysGivenFirstAndLastDayOnly(firstDayOfDaysToShowFromBeforeActualMonth, lastDayOfLastMonth);
     }
@@ -56,14 +56,14 @@ var getDaysInViewingMonthBeforeFirstWeekOfActualMonth = (viewingMonth) => {
     return daysToShowFromBeforeActualMonth;
 }
 
-var getDaysInViewingMonthAfterLastWeekOfActualMonth = (viewingMonth) => {
-    var daysToShowFromAfterActualMonth = [];
+const getDaysInViewingMonthAfterLastWeekOfActualMonth = (viewingMonth) => {
+    let daysToShowFromAfterActualMonth = [];
     
-    var lastDayOfActualMonth = moment().month(viewingMonth).endOf('month');
+    let lastDayOfActualMonth = moment().month(viewingMonth).endOf('month');
     if (moment(lastDayOfActualMonth).isoWeekday() !== 6) { // if the last day of the month isn't a Saturday
-        var numberOfDaysToShowFromAfterActualMonth = getNumberOfDaysToShowFromAfterActualMonth(lastDayOfActualMonth);
-        var firstDayOfNextMonth = moment().month(viewingMonth + 1).startOf('month');
-        var lastDayOfDaysToShowFromAfterActualMonth = moment(firstDayOfNextMonth).add(numberOfDaysToShowFromAfterActualMonth, 'days');
+        let numberOfDaysToShowFromAfterActualMonth = getNumberOfDaysToShowFromAfterActualMonth(lastDayOfActualMonth);
+        let firstDayOfNextMonth = moment().month(viewingMonth + 1).startOf('month');
+        let lastDayOfDaysToShowFromAfterActualMonth = moment(firstDayOfNextMonth).add(numberOfDaysToShowFromAfterActualMonth, 'days');
         lastDayOfDaysToShowFromAfterActualMonth = moment(lastDayOfDaysToShowFromAfterActualMonth);
         daysToShowFromAfterActualMonth = getArrayOfDaysGivenFirstAndLastDayOnly(firstDayOfNextMonth, lastDayOfDaysToShowFromAfterActualMonth);
     } 
@@ -73,47 +73,48 @@ var getDaysInViewingMonthAfterLastWeekOfActualMonth = (viewingMonth) => {
     return daysToShowFromAfterActualMonth;
 }
 
-var getNumberOfDaysToShowFromBeforeActualMonth = (firstDayOfActualMonth) => {
-    var numberOfDaysToShow = 0;
-    var dayNumberInWeek = moment(firstDayOfActualMonth).isoWeekday();
+const getNumberOfDaysToShowFromBeforeActualMonth = (firstDayOfActualMonth) => {
+    let numberOfDaysToShow = 0;
+    let dayNumberInWeek = moment(firstDayOfActualMonth).isoWeekday();
     if (dayNumberInWeek !== 0) {
         numberOfDaysToShow = dayNumberInWeek - 1;
     }
+    console.log(numberOfDaysToShow);
     return numberOfDaysToShow;
 }
 
-var getNumberOfDaysToShowFromAfterActualMonth = (lastDayOfActualMonth) => {
-    var numberOfDaysToShow = 0;
-    var dayNumberInWeek = moment(lastDayOfActualMonth).isoWeekday();
+const getNumberOfDaysToShowFromAfterActualMonth = (lastDayOfActualMonth) => {
+    let numberOfDaysToShow = 0;
+    let dayNumberInWeek = moment(lastDayOfActualMonth).isoWeekday();
     if (dayNumberInWeek !== 6) {
         numberOfDaysToShow = 6 - dayNumberInWeek - 1;
     }
     return numberOfDaysToShow;
 }
 
-var getEmptyDaySpacesForPreviousMonth = (firstDayOfActualMonth) => {
-    var emptyDaySpaces = [];
-    var numberOfDaysFromPreviousMonth = getNumberOfDaysToShowFromBeforeActualMonth(firstDayOfActualMonth);
+const getEmptyDaySpacesForPreviousMonth = (firstDayOfActualMonth) => {
+    let arrayOfEmptyDaySpaces = [];
+    console.log(arrayOfEmptyDaySpaces)
+    let numberOfDaysFromPreviousMonth = getNumberOfDaysToShowFromBeforeActualMonth(firstDayOfActualMonth);
     console.log(numberOfDaysFromPreviousMonth) // here
     while (numberOfDaysFromPreviousMonth) {
-        var emptyDay = {
+        let emptyDay = {
             momentObjectOfDay: null,
             inActualMonth: false,
             indexInActualMonth: null
         }
-        emptyDaySpaces.push(emptyDay);
+        arrayOfEmptyDaySpaces.push(emptyDay);
         numberOfDaysFromPreviousMonth--;
-        console.log(emptyDay)
     }
-    console.log(emptyDaySpaces)
-    return emptyDaySpaces;
+    console.log(arrayOfEmptyDaySpaces)
+    return arrayOfEmptyDaySpaces;
 }
-var getEmptyDaySpacesForNextMonth = (lastDayOfActualMonth) => {
-    var emptyDaySpaces = [];
-    var numberOfDaysFromNextMonth = getNumberOfDaysToShowFromAfterActualMonth(lastDayOfActualMonth);
+const getEmptyDaySpacesForNextMonth = (lastDayOfActualMonth) => {
+    let emptyDaySpaces = [];
+    let numberOfDaysFromNextMonth = getNumberOfDaysToShowFromAfterActualMonth(lastDayOfActualMonth);
     // console.log(numberOfDaysFromNextMonth)
     while (numberOfDaysFromNextMonth) {
-        var emptyDay = {
+        let emptyDay = {
             momentObjectOfDay: null,
             inActualMonth: false,
             indexInActualMonth: null
@@ -125,19 +126,26 @@ var getEmptyDaySpacesForNextMonth = (lastDayOfActualMonth) => {
     return emptyDaySpaces;
 }
 
-var getWeekObjectsFromOnlyActualMonth = (daysInActualMonth) => {
-    var weeksToShowFromActualMonthOnly = [];
-    var currentWeek = [];
+const getWeekObjectsFromOnlyActualMonth = (daysInActualMonth) => {
+    let weeksToShowFromActualMonthOnly = [];
+    console.log(weeksToShowFromActualMonthOnly)
+    let currentWeek = [];
     daysInActualMonth.map((day, index) => {
         if (index === 0) {
-            var emptyDaySpacesForPreviousMonth = getEmptyDaySpacesForPreviousMonth(daysInActualMonth[0]);
+            let emptyDaySpacesForPreviousMonth = getEmptyDaySpacesForPreviousMonth(daysInActualMonth[0]);
             currentWeek = emptyDaySpacesForPreviousMonth;
+            let currentDay = {
+                momentObjectOfDay: day,
+                inActualMonth: true,
+                indexInActualMonth: index
+            }
+            currentWeek.push(currentDay);
             // console.log(currentWeek)
         // console.log(emptyDaySpacesForPreviousMonth)
             
         }
         else if (currentWeek.length !== 7) {
-            var currentDay = {
+            let currentDay = {
                 momentObjectOfDay: day,
                 inActualMonth: true,
                 indexInActualMonth: index
@@ -147,7 +155,7 @@ var getWeekObjectsFromOnlyActualMonth = (daysInActualMonth) => {
         else if (currentWeek.length === 7 && index !== daysInActualMonth.length - 1) {
             weeksToShowFromActualMonthOnly.push(currentWeek); // add current week to list of weeks to be displayed
             currentWeek = []; // clear the currentWeek for the next week
-            var firstDayOfWeek = {
+            let firstDayOfWeek = {
                 momentObjectOfDay: day,
                 inActualMonth: true,
                 indexInActualMonth: index
@@ -155,7 +163,7 @@ var getWeekObjectsFromOnlyActualMonth = (daysInActualMonth) => {
             currentWeek.push(firstDayOfWeek);
         }
         else if (index === daysInActualMonth.length - 1 && moment(daysInActualMonth[index]).isoWeekday() !== 6) { // last day of actual month is not a Saturday, need empty days until Saturday
-            var emptyDaySpacesForNextMonth = getEmptyDaySpacesForNextMonth(daysInActualMonth[index]);
+            let emptyDaySpacesForNextMonth = getEmptyDaySpacesForNextMonth(daysInActualMonth[index]);
             currentWeek.concat(emptyDaySpacesForNextMonth);
             weeksToShowFromActualMonthOnly.push(currentWeek);
         }
@@ -166,12 +174,12 @@ var getWeekObjectsFromOnlyActualMonth = (daysInActualMonth) => {
     return weeksToShowFromActualMonthOnly;
 }
 
-var getWeekObjectsFromDaysInEntireViewingMonth = (viewingMonth, weeksToShowFromActualMonthOnly) => {
-    var weeksToShowFromEntireViewingMonth = [];
+const getWeekObjectsFromDaysInEntireViewingMonth = (viewingMonth, weeksToShowFromActualMonthOnly) => {
+    let weeksToShowFromEntireViewingMonth = [];
 
-    var daysToShowFromBeforeActualMonth = getDaysInViewingMonthBeforeFirstWeekOfActualMonth(viewingMonth);
+    let daysToShowFromBeforeActualMonth = getDaysInViewingMonthBeforeFirstWeekOfActualMonth(viewingMonth);
     daysToShowFromBeforeActualMonth.map((day, index) => {
-        var currentDay = {
+        let currentDay = {
             momentObjectOfDay: day,
             inActualMonth: false,
             indexInPreviousMonth: index
@@ -179,15 +187,15 @@ var getWeekObjectsFromDaysInEntireViewingMonth = (viewingMonth, weeksToShowFromA
         weeksToShowFromActualMonthOnly[0].splice(index, 1, currentDay)
     })
 
-    // var daysToShowFromAfterActualMonth = getDaysInViewingMonthAfterLastWeekOfActualMonth(viewingMonth);
+    // const daysToShowFromAfterActualMonth = getDaysInViewingMonthAfterLastWeekOfActualMonth(viewingMonth);
     // daysToShowFromAfterActualMonth.map((day, index) => {
-    //     var currentDay = {
+    //     const currentDay = {
     //         momentObjectOfDay: day,
     //         inActualMonth: false,
     //         indexInNextMonth: index
     //     }
-    //     var week = weeksToShowFromActualMonthOnly[weeksToShowFromActualMonthOnly.length - 1];
-    //     var weekReversed = week.reverse();
+    //     const week = weeksToShowFromActualMonthOnly[weeksToShowFromActualMonthOnly.length - 1];
+    //     const weekReversed = week.reverse();
     //     weekReversed = weekReversed.splice(index, 1, currentDay);
     //     week = weekReversed.reverse();
     //     weeksToShowFromActualMonthOnly[weeksToShowFromActualMonthOnly.length - 1] = week;

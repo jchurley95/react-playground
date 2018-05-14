@@ -102,6 +102,7 @@ class StyledDatePicker extends Component {
                 <DaysOfTheWeekBanner />
                 <AllShownWeeks
                     viewingMonth={this.state.viewingMonth}
+                    handleDateSelection={this.props.handleDateSelection}
                 />
             </StyledDatePickerContainer>
         );

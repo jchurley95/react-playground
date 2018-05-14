@@ -1,10 +1,17 @@
 import React from 'react';
+import moment from 'moment';
+import {
+    DayContainer,
+    DayNumber
+} from './Styled/StyledDatePicker.styled';
 
-const Day = () => {
+const Day = (props) => {
     return (
-        <div>
-            
-        </div>
+        <DayContainer
+            onClick={() => props.handleDateSelection(props.day)}
+        >
+            <DayNumber>{moment(props.day).format('D').toString()}</DayNumber>
+        </DayContainer>
     );
 };
 

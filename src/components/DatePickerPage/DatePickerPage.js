@@ -46,7 +46,7 @@ class DatePickerPage extends Component {
             <DatePickerPageContainer>
                 <h3>Moment.js Date Picker</h3>
 
-                <div>Selected Date is: {this.state.selectedDateThree}</div>
+                <div>Selected Date is: {moment(this.state.selectedDateThree).toString()}</div>
                 <StyledDatePicker
                     handleDateSelection={this.handleThirdDateSelection}
                     defaultDate={this.state.defaultDateThree}
